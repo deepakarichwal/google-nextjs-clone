@@ -28,11 +28,11 @@ export default function HomeMain() {
   }
 
   return (
-    <main className=" flex justify-center items-center  w-full">
-      <section className="flex flex-col gap-6 items-center  p-4 max-w-2xl w-screen mt-16">
+    <main className=" flex flex-col justify-center items-center  w-full">
+      <section className="flex flex-col gap-6 items-center  p-4 max-w-xl w-screen mt-16">
         <Image
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png"
-          className="w-60"
+          className="w-72"
           alt="Google logo"
           width={600}
           height={200}
