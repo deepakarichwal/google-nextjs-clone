@@ -1,48 +1,51 @@
 "use client";
 
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { HiMiniXMark } from "react-icons/hi2";
 import { RiMic2Line } from "react-icons/ri";
 
 export default function SearchBox() {
-  const [search, setSearch] = useState("");
-  function handleSubmit() {}
+  const searchParams = useSearchParams();
+  const searchTerm = searchParams.get("searchTerm");
+  const [term, setTerm] = useState(searchTerm || "");
+  const router = useRouter();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!term.trim()) return;
+    router.push(`/search/web?searchTerm=${term}`);
+  }
 
   return (
     <form
       onSubmit={handleSubmit}
       className="flex gap-4 items-center sm:max-w-2xl w-screen px-5"
     >
-      <div className="relative w-full">
+      <div
+        forHtml="search"
+        className="flex items-center gap-2 w-full bg-gray-50 shadow-md text-gray-900 text-sm rounded-full px-4 pl-0 overflow-hidden"
+      >
         <input
           type="text"
-          id="voice-search"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 pr-28 p-2.5"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          id="search"
+          className="flex-1 w-full h-full bg-transparent outline-none p-2.5  focus:bg-transparent ps-6"
+          value={term}
+          onChange={(e) => setTerm(e.target.value)}
         />
 
-        <button
-          onClick={() => setSearch("")}
-          type="button"
-          className="absolute inset-y-0 right-16 end-0 flex items-center pe-3"
-        >
-          <HiMiniXMark className="text-xl text-gray-600" />
+        <button onClick={() => setTerm("")} type="button">
+          <HiMiniXMark className="text-xl text-gray-600 " />
         </button>
 
-        <button
-          type="button"
-          className="absolute inset-y-0 right-8 end-0 flex items-center pe-3"
-        >
-          <RiMic2Line className="text-xl text-gray-600" />
+        <button type="button" className="hidden sm:inline-flex">
+          <RiMic2Line className="text-2xl text-blue-600 border-l-2 pl-1.5" />
         </button>
 
-        <button
-          type="button"
-          className="absolute inset-y-0 end-0 flex items-center pe-3"
-        >
-          <HiOutlineSearch className="text-xl text-gray-600" />
+        <button type="button" onClick={handleSubmit}>
+          <HiOutlineSearch className="text-lg text-blue-600 " />
         </button>
       </div>
     </form>
