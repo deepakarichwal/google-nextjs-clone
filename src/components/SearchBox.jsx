@@ -25,13 +25,13 @@ export default function SearchBox() {
       className="flex gap-4 items-center sm:max-w-2xl w-screen px-5"
     >
       <div
-        forHtml="search"
+        htmlFor="search"
         className="flex items-center gap-2 w-full bg-gray-50 shadow-md text-gray-900 text-sm rounded-full px-4 pl-0 overflow-hidden"
       >
         <input
           type="text"
           id="search"
-          className="flex-1 w-full h-full bg-transparent outline-none p-2.5  focus:bg-transparent ps-6"
+          className="flex-1 w-full h-full bg-transparent outline-none p-3 focus:bg-transparent ps-6"
           value={term}
           onChange={(e) => setTerm(e.target.value)}
         />

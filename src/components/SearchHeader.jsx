@@ -3,10 +3,11 @@ import SearchBox from "./SearchBox";
 import Link from "next/link";
 import { RiSettings3Line } from "react-icons/ri";
 import { TbGridDots } from "react-icons/tb";
+import SearchOptions from "./SearchOptions";
 
 export default function SearchHeader() {
   return (
-    <header className="sticky bg-white w-full border-b border-gray-200">
+    <header className="sticky bg-white w-full border-gray-200">
       <div className="flex sm:flex-row flex-col sm:gap-12 gap-3 py-5 sm:px-9 px-5 items-center justify-between relative">
         <Link href={"/"} className="self-start">
           <Image
@@ -38,6 +39,8 @@ export default function SearchHeader() {
           </button>
         </div>
       </div>
+
+      <SearchOptions />
     </header>
   );
 }
