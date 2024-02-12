@@ -9,13 +9,13 @@ export default function SearchHeader() {
   return (
     <header className="sticky bg-white w-full border-gray-200">
       <div className="flex sm:flex-row flex-col sm:gap-12 gap-3 py-5 sm:px-9 px-5 items-center justify-between relative">
-        <Link href={"/"} className="self-start">
+        <Link href={"/"} className="self-start sm:self-center">
           <Image
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png"
             className="w-28 max-w-xl"
             alt="Google logo"
             width={120}
-            height={60}
+            height={50}
             priority
           />
         </Link>

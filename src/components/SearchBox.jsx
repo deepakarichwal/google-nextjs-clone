@@ -31,7 +31,7 @@ export default function SearchBox() {
         <input
           type="text"
           id="search"
-          className="flex-1 w-full h-full bg-transparent outline-none p-3 focus:bg-transparent ps-6"
+          className="flex-1 w-full h-full bg-transparent outline-none p-3 py-4 focus:bg-transparent ps-6"
           value={term}
           onChange={(e) => setTerm(e.target.value)}
         />
