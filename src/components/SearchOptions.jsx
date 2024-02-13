@@ -18,7 +18,7 @@ export default function SearchOptions() {
   const selectedPathStyle = "!border-b-4 !border-blue-500 !text-blue-500";
 
   return (
-    <div className="flex gap-2 items-center justify-center sm:justify-start max-w-5xl w-full m-auto border-b border-gray-200 ">
+    <div className="flex gap-2 items-center justify-center sm:justify-start max-w-5xl w-full m-auto  ">
       <button
         onClick={() => selectTab("All")}
         className={`inline-flex gap-1 items-center pb-2 px-2 border-b-4 border-transparent ${

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams, reset } from "next/navigation";
 import { useState } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { HiMiniXMark } from "react-icons/hi2";
@@ -16,6 +16,7 @@ export default function SearchBox() {
     e.preventDefault();
 
     if (!term.trim()) return;
+
     router.push(`/search/web?searchTerm=${term}`);
   }
 

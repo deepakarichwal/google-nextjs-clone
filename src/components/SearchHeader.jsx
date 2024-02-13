@@ -7,7 +7,7 @@ import SearchOptions from "./SearchOptions";
 
 export default function SearchHeader() {
   return (
-    <header className="sticky bg-white w-full border-gray-200">
+    <header className="sticky bg-white w-full border-gray-200 border-b">
       <div className="flex sm:flex-row flex-col sm:gap-12 gap-3 py-5 sm:px-9 px-5 items-center justify-between relative">
         <Link href={"/"} className="self-start sm:self-center">
           <Image
