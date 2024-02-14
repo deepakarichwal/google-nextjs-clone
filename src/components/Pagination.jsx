@@ -1,9 +1,10 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
 
-export default function Pagination() {
+function SuspensePagination() {
   const router = useRouter();
   const pathanme = usePathname();
   const searchParams = useSearchParams();
@@ -54,5 +55,13 @@ export default function Pagination() {
         <AiOutlineDoubleRight className="text-3xl" />
       </button>
     </div>
+  );
+}
+
+export default function Pagination() {
+  return (
+    <Suspense>
+      <SuspensePagination />
+    </Suspense>
   );
 }
