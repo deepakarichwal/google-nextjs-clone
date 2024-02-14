@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter, useSearchParams, reset } from "next/navigation";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { useState } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { HiMiniXMark } from "react-icons/hi2";
@@ -9,6 +9,7 @@ import { RiMic2Line } from "react-icons/ri";
 export default function SearchBox() {
   const searchParams = useSearchParams();
   const searchTerm = searchParams.get("searchTerm");
+  const pathname = usePathname();
   const [term, setTerm] = useState(searchTerm || "");
   const router = useRouter();
 
@@ -16,14 +17,19 @@ export default function SearchBox() {
     e.preventDefault();
 
     if (!term.trim()) return;
+    // router.push(`/search/web?searchTerm=${term}`);
 
-    router.push(`/search/web?searchTerm=${term}`);
+    router.push(
+      `/search/${
+        pathname === "/search/image" ? "image" : "web"
+      }?searchTerm=${term}`
+    );
   }
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex gap-4 items-center sm:max-w-2xl w-screen px-5"
+      className="flex gap-4 items-center sm:max-w-4xl w-screen px-5"
     >
       <div
         htmlFor="search"
