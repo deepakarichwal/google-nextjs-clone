@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-export default function Error() {
+function SuspenseError() {
   const searchParams = useSearchParams();
   const searchTerm = searchParams.get("searchTerm");
 
@@ -33,4 +34,10 @@ export default function Error() {
       </div>
     </section>
   );
+}
+
+export default function Error() {
+  <Suspense>
+    <SuspenseError />
+  </Suspense>;
 }

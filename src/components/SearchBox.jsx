@@ -1,12 +1,12 @@
 "use client";
 
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { HiMiniXMark } from "react-icons/hi2";
 import { RiMic2Line } from "react-icons/ri";
 
-export default function SearchBox() {
+function SuspenseSearch() {
   const searchParams = useSearchParams();
   const searchTerm = searchParams.get("searchTerm");
   const pathname = usePathname();
@@ -56,5 +56,13 @@ export default function SearchBox() {
         </button>
       </div>
     </form>
+  );
+}
+
+export default function SearchBox() {
+  return (
+    <Suspense>
+      <SuspenseSearch />
+    </Suspense>
   );
 }

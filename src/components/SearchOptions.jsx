@@ -1,9 +1,10 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import { AiOutlineCamera, AiOutlineSearch } from "react-icons/ai";
 
-export default function SearchOptions() {
+function SuspenseSearchOptions() {
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -39,5 +40,13 @@ export default function SearchOptions() {
         <span>Images</span>
       </button>
     </div>
+  );
+}
+
+export default function SearchOptions() {
+  return (
+    <Suspense>
+      <SuspenseSearchOptions />
+    </Suspense>
   );
 }
