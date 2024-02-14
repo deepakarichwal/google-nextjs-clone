@@ -10,7 +10,7 @@ export default async function WebSearchPage({ searchParams }) {
   const startIndex = searchParams.start || "1";
 
   const res = await fetch(
-    `https://www.googleapis.com/customsearch/v1?key=${GOOGLE_API_KEY}x&cx=${CONTEXT_KEY}&q=${searchTerm}&start=${startIndex}`
+    `https://www.googleapis.com/customsearch/v1?key=${GOOGLE_API_KEY}&cx=${CONTEXT_KEY}&q=${searchTerm}&start=${startIndex}`
   );
 
   if (!res.ok) throw new Error("Something went wrong!");
